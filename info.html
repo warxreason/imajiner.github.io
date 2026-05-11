@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Info</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Datatype:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: "Datatype", sans-serif;
+            font-optical-sizing: auto;
+        }
+
+        header {
+            padding: 40px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .site-logo { width: 32px; height: auto; display: block; }
+
+        nav { display: flex; gap: 30px; }
+        nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+        nav a:hover { opacity: 0.5; text-decoration: underline; }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            padding: 0 40px;
+        }
+
+        .info-text {
+            position: absolute;
+            left: 40px;
+            text-align: left;
+            line-height: 1.6;
+            font-size: 16px;
+            max-width: 1000px;
+            z-index: 20;
+        }
+
+        .i-special { 
+            font-family: 'Times New Roman', serif; 
+            font-style: normal; 
+            font-size: 1.2em; 
+            line-height: 0;  
+            vertical-align: 0em; 
+        } 
+        
+        .majiner-special { 
+            font-family: 'Inter', sans-serif; 
+            font-weight: normal; 
+        }
+
+        .info-photo {
+            width: 140px; 
+            height: auto;
+            display: block;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-photo:hover { opacity: 0.8; }
+
+        footer {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        footer a { color: #000000; text-decoration: none; transition: opacity 0.3s; }
+        footer a:hover { opacity: 0.5; }
+        .divider { color: #cccccc; margin: 0 10px; }
+
+        @media (max-width: 768px) {
+            header { padding: 20px; }
+
+            .container {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                justify-content: center;
+            }
+
+            .info-photo {
+                order: 1;
+                margin-bottom: 20px;
+                width: 120px;
+            }
+
+            .info-text {
+                order: 2;
+                position: static; 
+                text-align: center;
+                max-width: 100%;
+                font-size: 14px;
+            }
+
+            footer {
+                flex-wrap: wrap;
+                gap: 15px;
+                padding: 30px 20px;
+            }
+
+            .divider { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img src="imajinerdot.png" alt="Logo" class="site-logo"></a>
+        <nav>
+            <a href="info.html" style="text-decoration: underline;">INFO</a>
+            <a href="mailto:juanfilbert24@gmail.com">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="info-text">
+            <p>Pekalongan origin from '09</p>
+            <p>Founder of <span class="i-special">i</span><span class="majiner-special">majiner</span> est. 2025.</p>
+            <p>Producer, writer, director, artist, and musician.</p>
+        </div>
+
+        <img src="Fotosutradaralow.png" alt="Foto Sutradara" class="info-photo">
+    </div>
+
+    <footer>
+        <a href="https://x.com/warxreason" target="_blank">TWITTER</a>
+        <span class="divider">/</span>
+        <a href="https://www.instagram.com/jfe.ig/" target="_blank">INSTAGRAM</a>
+        <span class="divider">/</span>
+        <a href="https://www.youtube.com/@jfeat_" target="_blank">YOUTUBE</a>
+    </footer>
+
+</body>
+</html>

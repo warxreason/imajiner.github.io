@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12349 Portfolio — Gallery</title>
+    
+    <script src="https://unpkg.com/draggabilly@3/dist/draggabilly.pkgd.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Datatype:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: "Datatype", sans-serif;
+            overflow: hidden; 
+        }
+
+        header {
+            padding: 40px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .site-logo {
+            width: 32px;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .site-logo:hover { opacity: 0.6; }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover { 
+            opacity: 0.5; 
+            text-decoration: underline;
+        }
+
+        #canvas {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Draggable item styles with requested shadow */
+        .draggable-item {
+            position: absolute;
+            cursor: grab;
+            z-index: 50;
+            touch-action: none; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Shadow from film info page */
+        }
+
+        .draggable-item:active {
+            cursor: grabbing;
+        }
+
+        .draggable-item img {
+            max-width: 300px; /* Adjust size as needed */
+            height: auto;
+            display: block;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+
+        footer {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 11px;
+            color: #000000;
+            text-transform: uppercase;
+            z-index: 100;
+        }
+
+        footer a {
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        footer a:hover { opacity: 0.5; }
+
+        .divider {
+            color: #cccccc;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 20px; }
+            footer {
+                flex-wrap: wrap;
+                padding: 30px 20px;
+                gap: 15px;
+            }
+            .divider { display: none; }
+            .draggable-item img { max-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="imajinerdot.png" alt="Logo" class="site-logo">
+        </a>
+        <nav>
+            <a href="info.html">INFO</a>
+            <a href="mailto:juanfilbert24@gmail.com">CONTACT</a>
+        </nav>
+    </header>
+
+    <div id="canvas">
+        <div class="draggable-item"><img src="dbsfpytsbts01.jpg" alt="BTS 01"></div>
+        <div class="draggable-item"><img src="dbsfpytsbts02.jpg" alt="BTS 02"></div>
+        <div class="draggable-item"><img src="dbsfpytsbts03.jpg" alt="BTS 03"></div>
+    </div>
+
+    <footer>
+        <a href="https://x.com/warxreason" target="_blank">TWITTER</a>
+        <span class="divider">/</span>
+        <a href="https://www.instagram.com/jfe.ig/" target="_blank">INSTAGRAM</a>
+        <span class="divider">/</span>
+        <a href="https://www.youtube.com/@jfeat_" target="_blank">YOUTUBE</a>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const items = document.querySelectorAll('.draggable-item');
+
+        items.forEach(item => {
+            // Randomly position images on load
+            const maxX = canvas.clientWidth - 300;
+            const maxY = canvas.clientHeight - 200;
+            
+            const randomX = Math.floor(Math.random() * Math.max(0, maxX));
+            const randomY = Math.floor(Math.random() * Math.max(0, maxY));
+            
+            item.style.left = randomX + 'px';
+            item.style.top = randomY + 'px';
+
+            // Initialize Draggabilly
+            new Draggabilly(item, {
+                containment: '#canvas'
+            });
+        });
+    </script>
+
+</body>
+</html>
